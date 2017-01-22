@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>House Crime Map</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWxeLsiZPwDGNDCmdRp_psxh3W0z3M3bE&libraries=places"
+       async defer></script>
+    {% load staticfiles %}
+    <script type="text/javascript" src='{% static 'project/js/main.js' %}'></script>
+    <link rel = "stylesheet" type = "text/css" href="{% static 'project/css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- ################# Navbar (sit on top)########### -->
+    <div class="w3-top">
+      <ul class="w3-navbar w3-white w3-card-2" id="myNavbar">
+        <li>
+          <a href="#home" class="w3-wide">HONEST AGENT</a>
+        </li>
+        <!-- Right-sided navbar links -->
+        <li class="w3-right w3-hide-small">
+          <a href="#about">REAL TIME MAP</a>
+          <a href="#team">TEAM</a>
+          <a href="#work">OTHER RESOURCES</a>
+          <a href="#contact">CONTACT</a>
+        </li>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+        <li>
+          <a href="javascript:void(0)" class="w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars w3-padding-right w3-padding-left"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- ###### Sidenav on small screens when clicking the menu icon ######-->
+    <nav class="w3-sidenav w3-black w3-card-2 w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidenav">
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-large w3-padding-16">Close ×</a>
+      <a href="#about">REAL TIME MAP</a>
+      <a href="#team">TEAM</a>
+      <a href="#work">OTHER RESOURCES</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <!-- ################## Header with full-height image ################## -->
+    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+      <div class="w3-display-left w3-padding-xxlarge w3-text-white">
+        <span class="w3-jumbo w3-hide-small">The REAL Deal.</span><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium">The REAL Deal.</span><br>
+        <p><span class="w3-large">We can provide you with the information that your agent won't.</span><p>
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+        <p><a href="#about" class="w3-btn w3-padding-large w3-large">See for yourself</a></p>
+      </div>
+    </header>
+
+
+
+    <!-- ################### Crime and House Checklist menu ############## -->
+      <div id = "crimechecklist">
+        <div id = "header">
+          <h3 id="recordtype">Type of Record</h3>
+        </div>
+        <div id = "crimeoptions">
+          <ul id = "optionsUL">
+            <li><input type="checkbox" id="assault">Assault</li>
+            <li><input type="checkbox" id="sexoffense" >Sex Offense</li>
+            <li><input type="checkbox" id="kidnapping" >Kidnapping</li>
+            <li><input type="checkbox" id="arson" >Arson</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id = "homechecklist">
+        <div id = "header">
+          <h3 id="hometype">Type of Home</h3>
+        </div>
+        <div id = "homeoptions">
+          <ul id = "optionsUL">
+            <li><input type="checkbox" id="home">Single Family Home</li>
+            <li><input type="checkbox" id="condo">Condos</li>
+            <li><input type="checkbox" id="rent" >Rentals</li>
+          </ul>
+          Price(Note: Rentals are in price/month)
+          <input type="textbox" id="minprice"><br>
+          to<br>
+          <input type="textbox" id="maxprice"><br>
+          <button type="button" id="filterprice">Filter</button>
+        </div>
+      </div>
+
+      <!-- ################### MAP ############## -->
+
+        <div id="map"></div>
+          <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    </body>
+</html>

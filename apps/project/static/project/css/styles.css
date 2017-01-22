@@ -1,0 +1,161 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/*#################################MAP################################*/
+#map {
+  height: 100%;
+  width: 65%;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+#target {
+  width: 345px;
+}
+
+/*###################### CRIME AND HOUSE CHECKLIST MENU #################### */
+#crimechecklist {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+#crimeoptions {
+  position: relative;
+  font-family: sans-serif;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #f9f9f9;
+  width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#optionsUL {
+  list-style-type: none;
+  -webkit-padding-start: 0px;
+}
+
+li{
+  padding: 2px;
+}
+
+#header{
+  background-color: lightblue;
+  margin-left: 10px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+
+}
+
+#header h3{
+  text-align: center;
+  font-weight: normal;
+  font-family: sans-serif;
+  font-size: 18px;
+  color: black;
+  margin: 10px;
+}
+
+#homechecklist {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 2px;
+}
+
+#homeoptions {
+  position: relative;
+  font-family: sans-serif;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #f9f9f9;
+  width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#minprice {
+  width: 180px;
+}
+
+#maxprice {
+  width: 180px;
+}
+
+#filterprice {
+  font-size: medium;
+}
+
+#content {
+ width: 300px;
+ height: 200px;
+ position: relative;
+ margin: 8px;
+ padding: 5px;
+}
+
+/*########################## TEMPLATE FOR ENTIRE APP ################*/
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("/static/project/images/hs.jpeg");
+    min-height: 100%;
+}
+.w3-navbar li a {
+    padding: 16px;
+    float: left;
+    font-size: 1.25em;
+}
