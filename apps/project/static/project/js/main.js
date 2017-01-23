@@ -1,6 +1,7 @@
-$(document).ready(function(){
-//alert('You are now working with jQuery!');
-  $(window).load(function() {
+$(document).ready(function(){ // executes when HTML-Document is loaded and DOM is ready
+  //alert('You are now working with jQuery!');
+
+  $(window).load(function() {  // executes when complete page is fully loaded, including all frames, objects and images
 
     //DEFINE ALL GLOBAL VARIABLES
     var gAssaultStr = "ASSAULT"
@@ -11,16 +12,21 @@ $(document).ready(function(){
     var gKidnappingPng = "/static/project/images/crime/KIDNAPPING.png"
     var gArsonStr = "ARSON"
     var gArsonPng = "/static/project/images/crime/ARSON.png"
+    var gCrimeString = ""
+    var gCrimeImagePng = ""
     var gUrlPathPrefix = "https://data.sfgov.org/resource/cuks-n6tp.json?category="
     var gLimitCount = "&$limit=100"
     var gUrl;
     var gCrimeMarkers = [];
-    var gPrevInfoWindow;
+    var gResidenceUrlString = "";
+    gResidenceImagePng = "";
     var gHomePng = "/static/project/images/housing/house.png"
     var gCondoPng = "/static/project/images/housing/condo.png"
     var gRentPng = "/static/project/images/housing/rent.png"
     var gHousingMarkers = [];
+    var gPrevInfoWindow;
 
+    //set up url for external data.gov.
     function setUp_gUrl(catToFilterData) {
       gUrl = gUrlPathPrefix + encodeURIComponent(catToFilterData) + gLimitCount;
     }
@@ -88,51 +94,57 @@ $(document).ready(function(){
       });
 
       //###################DISPLAY CRIME MARKERS ON MAP ##############
-      function displayCrimeMarker(catToFilterData, imagePngName) {
-        setUp_gUrl(catToFilterData);
+      function displayCrimeMarker() {
+        setUp_gUrl(gCrimeString);
 
         $.getJSON(gUrl, function(data, textstatus) {
           // console.log("In getJSON")
-              //########## INITIALIZE INFO WINDOW ###############
+              //Initialize Info Window
               var infowindow = new google.maps.InfoWindow({
                 content: ''
               })
-              //########## END INITIALIZE INFO WINDOW ###############
+              //For each JSON object in data, create a marker
               $.each(data, function(index,value) {
-                // console.log("In Each")
-                // console.log(data)
+                // console.log("Data: ", data)
                   var marker = new google.maps.Marker({
                       position: new google.maps.LatLng(value.y, value.x),
                       map: map,
-                      icon: imagePngName,
+                      icon: gCrimeImagePng,
                       visible: true,
                       content: value
                   });
-                  gCrimeMarkers.push(marker);
+                  gCrimeMarkers.push(marker); //push marker into a global array of all the CrimeMarkers
 
-                  //##################### INFO WINDOW FOR EACH MARKER ###############
+                  //INFO WINDOW FOR EACH MARKER
                   marker.addListener('click', function(){
+                    //close a previous window if there is one open
                     if (gPrevInfoWindow){
                       gPrevInfoWindow.close();
                     }
-                      infowindow.setContent("<p>" + "Record description: " + contentString + "<br />" + " Category: " + objectCat + "</p>");
 
-                      infowindow.open(map, marker);
-                      gPrevInfoWindow = infowindow;
+                    //set content to infowindow
+                    var contentString = marker.content.descript;
+                    var objectCat = marker.content.category;
+
+                    infowindow.setContent("<p>" + "Record description: " + contentString + "<br />" + " Category: " + objectCat + "</p>");
+
+                    //open infowindow
+                    infowindow.open(map, marker);
+
+                    //store current infowindow in global previous Info window for the next marker that is clicked
+                    gPrevInfoWindow = infowindow;
                   });
-
-                  var contentString = marker.content.descript;
-                  var objectCat = marker.content.category;
-
-              });//end each
-        });//end JSON
+              });//end .each
+        });//end .getJSON
       }//end displayCrimeMarker
 
     //##################### CLICK CHECKBOX TO SELECT VARIOUS CRIME CATEGORIES #################
 
       $('#assault').click(function(){
          if($('#assault').is(':checked')){
-           displayCrimeMarker(gAssaultStr, gAssaultPng);
+           gCrimeString = gAssaultStr;
+           gCrimeImagePng = gAssaultPng;
+           displayCrimeMarker();
          }
          else{
            $.each(gCrimeMarkers, function(index, value){
@@ -144,13 +156,15 @@ $(document).ready(function(){
                  gPrevInfoWindow.close();
                }
              }
-         });
-       }
+         }); //end .each
+       } //end else
      });
 
      $('#sexoffense').click(function(){
         if($('#sexoffense').is(':checked')){
-          displayCrimeMarker(gSexOffensesStr, gSexOffensesPng);
+          gCrimeString = gSexOffensesStr;
+          gCrimeImagePng = gSexOffensesPng;
+          displayCrimeMarker();
         }
         else{
           $.each(gCrimeMarkers, function(index, value){
@@ -162,13 +176,15 @@ $(document).ready(function(){
                 gPrevInfoWindow.close();
               }
             }
-        });
-      }
+        }); //end .each
+      } //end else
     });
 
     $('#kidnapping').click(function(){
        if($('#kidnapping').is(':checked')){
-         displayCrimeMarker(gKidnappingStr, gKidnappingPng);
+         gCrimeString = gKidnappingStr;
+         gCrimeImagePng = gKidnappingPng;
+         displayCrimeMarker();
        }
        else{
          $.each(gCrimeMarkers, function(index, value){
@@ -180,13 +196,15 @@ $(document).ready(function(){
                gPrevInfoWindow.close();
              }
            }
-         });
-       }
+         }); //end .each
+       } //end else
    });
 
    $('#arson').click(function(){
       if($('#arson').is(':checked')){
-        displayCrimeMarker(gArsonStr, gArsonPng);
+        gCrimeString = gArsonStr;
+        gCrimeImagePng = gArsonPng;
+        displayCrimeMarker();
       }
       else{
         $.each(gCrimeMarkers, function(index, value){
@@ -198,183 +216,67 @@ $(document).ready(function(){
               gPrevInfoWindow.close();
             }
           }
-      });
-    }
+      }); //end .each
+    } //end else
   });
 
     //################################ HOUSING DATA #################################
     //used an online converter (http://codebeautify.org/csv-to-xml-json) to convert .csv files to .json. Saved as static data in app.
 
-    // function displayHousingMarker(imagePngName) {
-    //   var path = "/apps/project/templates/project/home.json";
-    //
-    //   $.getJSON(path, function(data, textstatus) {
-    //     // console.log("In getJSON")
-    //         //########## INITIALIZE INFO WINDOW ###############
-    //         var infowindow = new google.maps.InfoWindow({
-    //           content: ''
-    //         })
-    //         //########## END INITIALIZE INFO WINDOW ###############
-    //         $.each(data, function(index,value) {
-    //           // console.log("In Each")
-    //           // console.log(data)
-    //             var marker = new google.maps.Marker({
-    //                 position: new google.maps.LatLng(value.x, value.y),
-    //                 map: map,
-    //                 icon: imagePngName,
-    //                 visible: true,
-    //                 content: value
-    //             });
-    //             gHousingMarkers.push(marker);
-    //
-    //             //##################### INFO WINDOW FOR EACH MARKER ###############
-    //             marker.addListener('click', function(){
-    //               if (gPrevInfoWindow){
-    //                 gPrevInfoWindow.close();
-    //               }
-    //                 infowindow.setContent("Address: " + contentString);
-    //
-    //                 infowindow.open(map, marker);
-    //                 gPrevInfoWindow = infowindow;
-    //             });
-    //
-    //             var contentString = marker.content.Address;
-    //             // var objectCat = marker.content.category;
-    //
-    //         });//end each
-    //   });//end JSON
-    // }//end displayHousingMarker
+    //Display Residence markers on map
+    function displayResidenceMarker(residenceCategory) {
 
-    function displayHomeMarker(imagePngName, houseCategory) {
-
-      $.get("home", function(res) {
-            //########## INITIALIZE INFO WINDOW ###############
+      $.get(gResidenceUrlString, function(res) {
+            //initialize Info Window
             var infowindow = new google.maps.InfoWindow({
               content: ''
             })
-            //############# MAP MARKER FOR EACH DATA OBJECT #############
+            //for each JSON object in data, create a MARKERS
             $.each(JSON.parse(res), function(index,value) {
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(value.x, value.y),
                     map: map,
-                    icon: imagePngName,
+                    icon: gResidenceImagePng,
                     visible: true,
                     content: value,
-                    category: houseCategory
+                    category: residenceCategory
                 });
-                gHousingMarkers.push(marker);
-                //##################### INFO WINDOW FOR EACH MARKER ###############
+                gHousingMarkers.push(marker); //push marker into global array of all the HousingMarkers
+
+                //INFO WINDOW FOR EACH MARKER
                 marker.addListener('click', function(){
+                  //close a previous window if there is one open
                   if (gPrevInfoWindow){
                     gPrevInfoWindow.close();
                   }
-                    infowindow.setContent("<p>" + "Address: " + address + "<br />" + "Price: " + price + "<br />" + "# of Bedrooms: " + bd + "<br />" + "# of Bathrooms: " + ba + "<br />" + "Category: " + objectCat + "</p");
 
-                    infowindow.open(map, marker);
-                    gPrevInfoWindow = infowindow;
+                  //set content to infowindow
+                  var address = marker.content.Address;
+                  var price = marker.content.Price;
+                  var bd = marker.content.BD;
+                  var ba = marker.content.BA;
+                  var objectCat = marker.category;
+
+                  infowindow.setContent("<p>" + "Address: " + address + "<br />" + "Price: " + price + "<br />" + "# of Bedrooms: " + bd + "<br />" + "# of Bathrooms: " + ba + "<br />" + "Category: " + objectCat + "</p");
+
+                  //open infowindow
+                  infowindow.open(map, marker);
+
+                  //store current infowindow in global previous Info window for the next marker that is clicked
+                  gPrevInfoWindow = infowindow;
                 });
-
-                var address = marker.content.Address;
-                var price = marker.content.Price;
-                var bd = marker.content.BD;
-                var ba = marker.content.BA;
-                var objectCat = marker.category;
             });//end each
-            console.log("gHousingMarker without filtering: ", gHousingMarkers.length)
-
-
-
-
+            // console.log("gHousingMarker without filtering: ", gHousingMarkers.length)
       });//end $get
+    }//end displayResidenceMarker
 
-    }//end displayHomeMarker
-
-    function displayCondoMarker(imagePngName, houseCategory) {
-
-      $.get("condo", function(res) {
-        //########## INITIALIZE INFO WINDOW ###############
-        var infowindow = new google.maps.InfoWindow({
-          content: ''
-        })
-        //############# MAP MARKER FOR EACH DATA OBJECT #############
-        $.each(JSON.parse(res), function(index,value) {
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(value.x, value.y),
-                map: map,
-                icon: imagePngName,
-                visible: true,
-                content: value,
-                category: houseCategory
-            });
-            gHousingMarkers.push(marker);
-
-            //##################### INFO WINDOW FOR EACH MARKER ###############
-            marker.addListener('click', function(){
-              if (gPrevInfoWindow){
-                gPrevInfoWindow.close();
-              }
-
-              infowindow.setContent("<p>" + "Address: " + address + "<br />" + "Price: " + price + "<br />" + "# of Bedrooms: " + bd + "<br />" + "# of Bathrooms: " + ba + "<br />" + "Category: " + objectCat + "</p");
-
-              infowindow.open(map, marker);
-              gPrevInfoWindow = infowindow;
-            });
-
-            var address = marker.content.Address;
-            var price = marker.content.Price;
-            var bd = marker.content.BD;
-            var ba = marker.content.BA;
-            var objectCat = marker.category;
-
-            });//end each
-      });//end $get
-    }//end displayCondoMarker
-
-    function displayRentMarker(imagePngName, houseCategory) {
-
-      $.get("rent", function(res) {
-        //########## INITIALIZE INFO WINDOW ###############
-        var infowindow = new google.maps.InfoWindow({
-          content: ''
-        })
-        //############# MAP MARKER FOR EACH DATA OBJECT #############
-        $.each(JSON.parse(res), function(index,value) {
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(value.x, value.y),
-                map: map,
-                icon: imagePngName,
-                visible: true,
-                content: value,
-                category: houseCategory
-            });
-            gHousingMarkers.push(marker);
-
-            //##################### INFO WINDOW FOR EACH MARKER ###############
-            marker.addListener('click', function(){
-              if (gPrevInfoWindow){
-                gPrevInfoWindow.close();
-              }
-              infowindow.setContent("<p>" + "Address: " + address + "<br />" + "Price: " + price + "<br />" + "# of Bedrooms: " + bd + "<br />" + "# of Bathrooms: " + ba + "<br />" + "Category: " + objectCat + "</p");
-
-              infowindow.open(map, marker);
-              gPrevInfoWindow = infowindow;
-            });
-
-            var address = marker.content.Address;
-            var price = marker.content.Price;
-            var bd = marker.content.BD;
-            var ba = marker.content.BA;
-            var objectCat = marker.category;
-
-            });//end each
-      });//end $get
-    }//end displayRentMarker
-
-
+  //##################### CLICK CHECKBOX TO SELECT VARIOUS HOUSING CATEGORIES #################
 
     $('#home').click(function(){
        if($('#home').is(':checked')){
-         displayHomeMarker(gHomePng, "Single Family Home");
+         gResidenceUrlString = "home";
+         gResidenceImagePng = gHomePng;
+         displayResidenceMarker("Single Family Home");
        }
        else{
          $.each(gHousingMarkers, function(index, value){
@@ -392,7 +294,9 @@ $(document).ready(function(){
 
      $('#condo').click(function(){
         if($('#condo').is(':checked')){
-          displayCondoMarker(gCondoPng, "Condo");
+          gResidenceUrlString = "condo";
+          gResidenceImagePng = gCondoPng;
+          displayResidenceMarker("Condo");
         }
         else{
           $.each(gHousingMarkers, function(index, value){
@@ -410,7 +314,9 @@ $(document).ready(function(){
 
       $('#rent').click(function(){
          if($('#rent').is(':checked')){
-           displayRentMarker(gRentPng, "Rental");
+           gResidenceUrlString = "rent";
+           gResidenceImagePng = gRentPng;
+           displayResidenceMarker("Rental");
          }
          else{
            $.each(gHousingMarkers, function(index, value){
@@ -426,6 +332,7 @@ $(document).ready(function(){
        }
      });
 
+     //PRICE RANGE FILTER
      $('#filterprice').click(function(){
 
        var minprice = $('#minprice').val();
@@ -435,26 +342,18 @@ $(document).ready(function(){
        maxprice = parseInt(maxprice);
 
        $.each(gHousingMarkers, function(index, value){
-         var price = value.content.Price
+         var price = value.content.Price;
          price = price.replace(/,/g, "");
-         price = price.replace('/', ""); //replaces all / in number with empty string
-         price = price.replace('$', ""); //replaces all $ in number with empty string
-         price = price.replace('/mo', "");
+        //  price = price.replace('/', ""); //replaces all / in number from data  with empty string
+         price = price.replace('$', ""); //replaces $ in number from data with empty string
+         price = price.replace('/mo', ""); //replaces /mo in number from data with empty string
          price = parseInt(price); //converts string to integer
 
+         //if the price is out of the price range user inputs, set visibility to false
          if(price < minprice || price > maxprice ){
            value.setVisible(false);
          }
        });
      })
-
-
-
-
-
-
-
-
-
  }); //end of window.load function
 }); //end of document.ready function
