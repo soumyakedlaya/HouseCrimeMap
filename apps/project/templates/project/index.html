@@ -10,52 +10,31 @@
     <script type="text/javascript" src='{% static 'project/js/main.js' %}'></script>
     <link rel = "stylesheet" type = "text/css" href="{% static 'project/css/styles.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <!-- ################# Navbar (sit on top)########### -->
-    <div class="w3-top">
-      <ul class="w3-navbar w3-white w3-card-2" id="myNavbar">
-        <li>
-          <a href="#home" class="w3-wide">HONEST AGENT</a>
-        </li>
-        <!-- Right-sided navbar links -->
-        <li class="w3-right w3-hide-small">
-          <a href="#about">REAL TIME MAP</a>
-          <a href="#team">TEAM</a>
-          <a href="#work">OTHER RESOURCES</a>
-          <a href="#contact">CONTACT</a>
-        </li>
-        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-        <li>
-          <a href="javascript:void(0)" class="w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-            <i class="fa fa-bars w3-padding-right w3-padding-left"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <!-- ###### Sidenav on small screens when clicking the menu icon ######-->
-    <nav class="w3-sidenav w3-black w3-card-2 w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidenav">
-      <a href="javascript:void(0)" onclick="w3_close()" class="w3-large w3-padding-16">Close ×</a>
-      <a href="#about">REAL TIME MAP</a>
-      <a href="#team">TEAM</a>
-      <a href="#work">OTHER RESOURCES</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
-    <!-- ################## Header with full-height image ################## -->
-    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-      <div class="w3-display-left w3-padding-xxlarge w3-text-white">
-        <span class="w3-jumbo w3-hide-small">The REAL Deal.</span><br>
-        <span class="w3-xxlarge w3-hide-large w3-hide-medium">The REAL Deal.</span><br>
-        <p><span class="w3-large">We can provide you with the information that your agent won't.</span><p>
-        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-        <p><a href="#about" class="w3-btn w3-padding-large w3-large">See for yourself</a></p>
+    <div id="home">
+    <!-- ################# Navbar ########### -->
+      <div id="top">
+        <ul id = "Navbar_realAgent">
+          <li><a href="#home">Honest Real-Estate Agent</a></li>
+        </ul>
+        <ul id = "Navbar">
+          <li>
+            <a href="#map">REAL TIME MAP</a>
+            <a href="#team">TEAM</a>
+            <a href="#other_resources">OTHER RESOURCES</a>
+            <a href="#contact">CONTACT</a>
+        </ul>
       </div>
-    </header>
-
-
+      <div id="realdealbox">
+        <h1>The REAL Deal.</h1>
+        <h3>We can provide you with the information that your agent won't.</h3>
+        <a href = "#map" class="button">See for yourself</a>
+      </div>
+    </div>
 
     <!-- ################### Crime and House Checklist menu ############## -->
       <div id = "crimechecklist">
@@ -89,10 +68,63 @@
           <button type="button" id="filterprice">Filter</button>
         </div>
       </div>
-
       <!-- ################### MAP ############## -->
-
         <div id="map"></div>
           <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
+      <div id = "undermap">
+        <h3>One step at a time, all in one place </h3>
+        <a href = "#other_resources" class="button">Click here to view other related sites that have information BUT in many different places...</a>
+      </div>
+<!-- ############################ MEET THE TEAM ######### -->
+      <div id = "team">
+        <h1>MEET THE TEAM!</h1>
+        <div id="soumya">
+          <img src="/static/project/images/SK.jpg" alt="SK">
+          <h2>Soumya Kedlaya</h2>
+          <p id="sftdevel">Software Developer</p>
+          <p>University of California, Irvine, BS in Biological Sciences, Medical school student turned developer.</p>
+        </div>
+        <div id="ryan">
+          <img src="/static/project/images/RP.jpg" alt="RP">
+          <h2>Ryan Pan</h2>
+          <p id="sftdevel">Software Developer</p>
+          <p>University of California, Davis, Bachelor's Degree, Computer Science.</p>
+        </div>
+        <div id="victor">
+          <img src="/static/project/images/VP.jpg" alt="VP">
+          <h2>Victor Pak</h2>
+          <p id="sftdevel">Software Developer</p>
+          <p>A NICE GUY!</p>
+        </div>
+
+        <div id="raymond">
+          <img src="/static/project/images/RZ1.jpg" alt="RZ">
+          <h2>Raymond Zhong</h2>
+          <p id="sftdevel">Software Developer</p>
+          <p>A native of San Francisco who holds a Bachelor of Sciences degree in Construction Management.</p>
+        </div>
+      </div>
+      <!-- ############################ OTHER RESOURCES ######### -->
+      <div id = "other_resources">
+        <h1>OTHER RESOURCES</h1>
+        <p>If you prefer to do your own research, below are the links to resources which contain bits of information (which we have already integrated in our site).</p>
+        <a href= "http://www.crimemapping.com/map/ca/sanfrancisco"><img id="crimemap" src = "/static/project/images/crimemapping.svg" alt="Crime Mapping"></a>
+        <a href = "https://dev.socrata.com/foundry/data.sfgov.org/cuks-n6tp"><img id="SanFran"src = "/static/project/images/sf.jpeg" alt="San Fran"></a>
+        <a href = "https://data.sfgov.org/Public-Safety/Map-Crime-Incidents-from-1-Jan-2003/gxxq-x39z/data"><img id="SFOD" src = "/static/project/images/SFOD.png" alt="SFOD"></a>
+        <a href = "https://spotcrime.com/#14791%20Butano%20Terrace%2C%20Saratoga%2C%20CA%2095070%2C%20USA"><img id="SpotCrime" src = "/static/project/images/spotcrime.png" alt="SpotCrime"></a>
+        <a href = "https://www.redfin.com/zipcode/94306/filter/sort=lo-price,include=forsale+mlsfsbo+construction+fsbo+foreclosed+sold-3mo,viewport=37.45032:37.37983:-122.0919:-122.1597"><img id="redfin" src = "/static/project/images/redfin.jpg" alt="RedFin"></a>
+        <a href = "https://www.trulia.com/"><img id="trulia" src = "/static/project/images/Trulia.png" alt="Trulia"></a>
+        <a href = "http://www.zillow.com/homes/for_rent/"><img id="zillow" src = "/static/project/images/Zillow.jpg" alt="Zillow"></a>
+        <a href = "http://sanfranciscopolice.org/"><img id="SFPD" src = "/static/project/images/sfpd.jpeg" alt="SFPD"></a>
+      </div>
+      <!-- ############################ CONTACT US ######### -->
+
+      <div id = "contact">
+        <h1>CONTACT US!</h1>
+        <h3><i class="fa fa-map-marker"></i> San Francisco, California, USA</h3>
+        <h3><i class="fa fa-phone"></i> Phone: 415.508.7108</h3>
+        <h3><i class="fa fa-envelope"></i><a href="mailto:raymond.century21@gmail.com">Email: Support@HonestAgent.com</a></h3>
+      </div>
     </body>
 </html>

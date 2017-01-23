@@ -6,10 +6,11 @@ html, body {
 
 /*#################################MAP################################*/
 #map {
-  height: 100%;
+  height: 80%;
   width: 65%;
   display: inline-block;
   margin-left: 20px;
+  margin-top: 50px;
 }
 
 .controls {
@@ -61,13 +62,14 @@ html, body {
 #crimechecklist {
   display: inline-block;
   vertical-align: top;
-  margin-left: 10px;
+  margin-left: 30px;
+  margin-top: 50px;
 }
 
 #crimeoptions {
   position: relative;
   font-family: sans-serif;
-  margin-left: 10px;
+  margin-left: 30px;
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -87,7 +89,7 @@ li{
 
 #header{
   background-color: lightblue;
-  margin-left: 10px;
+  margin-left: 30px;
   padding: 10px;
   border: none;
   cursor: pointer;
@@ -107,12 +109,13 @@ li{
   display: inline-block;
   vertical-align: top;
   margin-left: 2px;
+  margin-top: 50px;
 }
 
 #homeoptions {
   position: relative;
   font-family: sans-serif;
-  margin-left: 10px;
+  margin-left: 30px;
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -140,22 +143,205 @@ li{
  margin: 8px;
  padding: 5px;
 }
-
-/*########################## TEMPLATE FOR ENTIRE APP ################*/
+/*############ ENTIRE APP STYLES ########*/
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-body, html {
+/*body, html {
     height: 100%;
     line-height: 1.8;
-}
+}*/
 /* Full height image header */
-.bgimg-1 {
+/*.bgimg-1 {
     background-position: center;
     background-size: cover;
     background-image: url("/static/project/images/hs.jpeg");
-    min-height: 100%;
+    min-height: 100%;*/
 }
-.w3-navbar li a {
-    padding: 16px;
-    float: left;
-    font-size: 1.25em;
+
+#Navbar_realAgent, #Navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#Navbar_realAgent li {
+  display: inline;
+  position:absolute;
+  top:0;
+  left:0;
+  font-size: 20px;
+  line-height: 2.0;
+}
+
+#Navbar li {
+  display: inline;
+  position:absolute;
+  top:0;
+  right:0;
+  font-size: 18px;
+  line-height: 2.0;
+}
+
+#Navbar a, #Navbar_realAgent a {
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+  font-weight: bold;
+}
+
+#Navbar_realAgent li a:hover, #Navbar li a:hover {
+  background-color:lightgrey;
+}
+
+#realdealbox {
+  margin-top: 40px;
+  height: 600px;
+  background-image: url("/static/project/images/hs.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100%;
+
+}
+#realdealbox h1{
+  font-size: 60px;
+  font-weight: bold;
+  padding-top: 180px;
+  padding-left: 90px;
+}
+
+#realdealbox h3{
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 90px;
+  margin-bottom: 50px;
+}
+
+.button{
+  background-color: black;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 90px;
+  cursor: pointer;`
+}
+
+#undermap{
+  margin-top: 50px;
+}
+
+#undermap h3{
+  font-weight: bold;
+  margin-left: 90px;
+  font-size: 24px;
+}
+
+
+#team h1{
+  font-size: 25px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+
+#team{
+  margin-top: 100px;
+  display: inline-block;
+  position: relative;
+  left: 15%;
+}
+
+#ryan, #victor, #soumya, #raymond{
+  display: inline-block;
+  width: 300px;
+  height: 400px;
+  vertical-align: top;
+  border-style: solid;
+  }
+
+#team img {
+  height: 200px;
+  width: 200px;
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+#team h2, p {
+  text-align: center;
+}
+
+#sftdevel{
+  color: red
+}
+
+#other_resources h1{
+  margin-top: 100px;
+  display: inline-block;
+  position: relative;
+  left: 40%;
+}
+
+#crimemap {
+  width: 350px;
+  height: 350px;
+  vertical-align: top;
+  padding: 20px;
+  padding-left: 100px;
+}
+
+#SanFran {
+  width: 280px;
+  height: 280px;
+  vertical-align: top;
+  padding: 20px;
+
+}
+
+#SFOD{
+  width: 300px;
+  height: 150px;
+  padding: 20px;
+
+}
+
+#SpotCrime {
+  width: 280px;
+  height: 280px;
+  padding: 20px;
+}
+
+#redfin {
+  width: 250px;
+  height: 250px;
+  padding: 50px;
+  padding-left: 150px;
+}
+
+#trulia {
+  width: 220px;
+  height: 220px;
+  padding: 50px;
+}
+
+#zillow{
+  width: 250px;
+  height: 100px;
+  padding: 50px;
+}
+
+#SFPD {
+  width: 250px;
+  height: 250px;
+  padding: 50px;
+}
+
+#contact h1{
+  font-size: 25px;
+  text-align: center;
+  padding-top: 50px;
+}
+
+#contact h3{
+padding-left: 20px;
 }
