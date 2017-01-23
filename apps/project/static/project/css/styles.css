@@ -7,7 +7,7 @@ html, body {
 /*#################################MAP################################*/
 #map {
   height: 80%;
-  width: 65%;
+  width: 60%;
   display: inline-block;
   margin-left: 20px;
   margin-top: 50px;
@@ -64,6 +64,7 @@ html, body {
   vertical-align: top;
   margin-left: 30px;
   margin-top: 50px;
+  width: 15%
 }
 
 #crimeoptions {
@@ -74,7 +75,6 @@ html, body {
   padding-top: 5px;
   padding-bottom: 5px;
   background-color: #f9f9f9;
-  width: 150px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
@@ -110,6 +110,7 @@ li{
   vertical-align: top;
   margin-left: 2px;
   margin-top: 50px;
+  width: 20%
 }
 
 #homeoptions {
@@ -120,20 +121,11 @@ li{
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: #f9f9f9;
-  width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 #note {
   font-size: 12px;
-}
-
-#minprice {
-  width: 180px;
-}
-
-#maxprice {
-  width: 180px;
 }
 
 #filterprice {
@@ -148,23 +140,24 @@ li{
  padding: 5px;
 }
 /*############ ENTIRE APP STYLES ########*/
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-/*body, html {
-    height: 100%;
-    line-height: 1.8;
-}*/
-/* Full height image header */
-/*.bgimg-1 {
-    background-position: center;
-    background-size: cover;
-    background-image: url("/static/project/images/hs.jpeg");
-    min-height: 100%;*/
+body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Raleway", sans-serif
 }
+
+/*#top {
+  position: fixed;
+  top: 0;
+  overflow: auto;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+}*/
 
 #Navbar_realAgent, #Navbar {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow: auto;
 }
 
 #Navbar_realAgent li {
@@ -253,7 +246,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   margin-top: 100px;
   display: inline-block;
   position: relative;
-  left: 15%;
+}
+
+#team_members {
+  position: relative;
+  left: 2%
 }
 
 #ryan, #victor, #soumya, #raymond{
@@ -286,12 +283,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   left: 40%;
 }
 
+#other_resources p{
+  font-size: 20px;
+}
+
+#resources_box{
+  width: 100%;
+  height: 80%;
+}
+
 #crimemap {
   width: 350px;
   height: 350px;
   vertical-align: top;
   padding: 20px;
-  padding-left: 100px;
+  vertical-align: center;
 }
 
 #SanFran {
@@ -299,6 +305,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   height: 280px;
   vertical-align: top;
   padding: 20px;
+  vertical-align: center;
 
 }
 
@@ -306,46 +313,50 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   width: 300px;
   height: 150px;
   padding: 20px;
-
+  vertical-align: center;
 }
 
 #SpotCrime {
-  width: 280px;
-  height: 280px;
+  width: 200px;
+  height: 240px;
   padding: 20px;
+  vertical-align: center;
 }
 
 #redfin {
-  width: 250px;
-  height: 250px;
-  padding: 50px;
-  padding-left: 150px;
+  width: 200px;
+  height: 200px;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 #trulia {
-  width: 220px;
-  height: 220px;
-  padding: 50px;
+  width: 200px;
+  height: 200px;
+  padding-right: 50px;
 }
 
 #zillow{
-  width: 250px;
-  height: 100px;
-  padding: 50px;
+  width: 180px;
+  height: 80px;
+  padding-right: 50px;
 }
 
 #SFPD {
   width: 250px;
   height: 250px;
-  padding: 50px;
 }
 
 #contact h1{
   font-size: 25px;
   text-align: center;
-  padding-top: 50px;
+  margin-top: 80px;
 }
 
 #contact h3{
 padding-left: 20px;
+}
+
+#email {
+  padding-bottom: 100px;
 }
