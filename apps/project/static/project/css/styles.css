@@ -1,16 +1,191 @@
 html, body {
   height: 100%;
+  width: 100%
+}
+
+/*############ ENTIRE APP STYLES ########*/
+body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Raleway", sans-serif
+}
+
+/*################ NAV BAR AND HANDSHAKE IMAGE ######*/
+#top {
+  padding: 20px;
+  display: inline-block;
+}
+
+#Navbar_realAgent{
+  list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow: auto;
+  float: left;
+}
+
+#Navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 50px;
+  overflow: auto;
+  float: left;
+}
+
+#Navbar_realAgent li {
+  font-size: 24px;
+  padding: 0px;
+}
+
+#Navbar li {
+  font-size: 17px;
+  line-height: 29px;
+}
+
+#Navbar a{
+  text-decoration: none;
+  padding: 10px;
+  color: rgb(68, 68, 68);
+  font-weight: bold;
+}
+
+#Navbar_realAgent a {
+  text-decoration: none;
+  padding: 10px;
+  color: #008ddf;
+  font-weight: bold;
+}
+
+#Navbar_realAgent li a:hover, #Navbar li a:hover {
+  background-color:lightgrey;
+}
+
+#realdealbox {
+  height: 500px;
+  background-image: url("/static/project/images/handshake-v2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+#realdealbox h1{
+  font-size: 40px;
+  font-weight: bold;
+  /*padding-top: 180px;*/
+  padding-left: 90px;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  padding-top: 15%
+}
+
+#realdealbox h3{
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 90px;
+  margin-bottom: 50px;
+  padding-top: 0;
+  -webkit-margin-before: 0;
+}
+
+/*###################CRIME AND HOUSE CHECKLIST MENU #################### */
+#left{
+  display: inline-block;
+  width: 25%;
+}
+
+#homechecklist {
+  vertical-align: top;
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+#homeoptions {
+  position: relative;
+  font-family: sans-serif;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#note {
+  font-size: 12px;
+}
+
+#minprice{
+  width: 30%;
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+#maxprice {
+  width: 30%;
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+#filterprice {
+  font-size: medium;
+  margin-top: 20px;
+  margin-left: 25%;
+  width: 30%;
+}
+
+#crimechecklist {
+  vertical-align: top;
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+#crimeoptions {
+  position: relative;
+  font-family: sans-serif;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#header{
+  background-color: lightblue;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+
+}
+
+#header h3{
+  text-align: center;
+  font-weight: normal;
+  font-family: sans-serif;
+  font-size: 18px;
+  color: black;
+  margin: 10px;
+}
+
+#optionsUL {
+  list-style-type: none;
+  -webkit-padding-start: 0px;
+}
+
+li{
+  padding: 2px;
 }
 
 /*#################################MAP################################*/
 #map {
   height: 80%;
-  width: 60%;
-  display: inline-block;
+  width: 70%;
   margin-left: 20px;
   margin-top: 50px;
+  margin-right: 30px;
+  position: relative;
+  overflow: hidden;
+  float: right
 }
 
 .controls {
@@ -58,305 +233,91 @@ html, body {
   width: 345px;
 }
 
-/*###################### CRIME AND HOUSE CHECKLIST MENU #################### */
-#crimechecklist {
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 30px;
-  margin-top: 50px;
-  width: 15%
-}
-
-#crimeoptions {
-  position: relative;
-  font-family: sans-serif;
-  margin-left: 30px;
-  padding-left: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-#optionsUL {
-  list-style-type: none;
-  -webkit-padding-start: 0px;
-}
-
-li{
-  padding: 2px;
-}
-
-#header{
-  background-color: lightblue;
-  margin-left: 30px;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-
-}
-
-#header h3{
-  text-align: center;
-  font-weight: normal;
-  font-family: sans-serif;
-  font-size: 18px;
-  color: black;
-  margin: 10px;
-}
-
-#homechecklist {
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 2px;
-  margin-top: 50px;
-  width: 20%
-}
-
-#homeoptions {
-  position: relative;
-  font-family: sans-serif;
-  margin-left: 30px;
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-#note {
-  font-size: 12px;
-}
-
-#filterprice {
-  font-size: medium;
-}
-
-#content {
- width: 300px;
- height: 200px;
- position: relative;
- margin: 8px;
- padding: 5px;
-}
-/*############ ENTIRE APP STYLES ########*/
-body,h1,h2,h3,h4,h5,h6 {
-  font-family: "Raleway", sans-serif
-}
-
-/*#top {
-  position: fixed;
-  top: 0;
-  overflow: auto;
-  width: 100%;
-  background-color: white;
-  z-index: 1;
-}*/
-
-#Navbar_realAgent, #Navbar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-}
-
-#Navbar_realAgent li {
-  display: inline;
-  position:absolute;
-  top:0;
-  left:0;
-  font-size: 20px;
-  line-height: 2.0;
-}
-
-#Navbar li {
-  display: inline;
-  position:absolute;
-  top:0;
-  right:0;
-  font-size: 18px;
-  line-height: 2.0;
-}
-
-#Navbar a, #Navbar_realAgent a {
-  text-decoration: none;
-  padding: 10px;
-  color: black;
-  font-weight: bold;
-}
-
-#Navbar_realAgent li a:hover, #Navbar li a:hover {
-  background-color:lightgrey;
-}
-
-#realdealbox {
-  margin-top: 40px;
-  height: 600px;
-  background-image: url("/static/project/images/hs.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100%;
-
-}
-#realdealbox h1{
-  font-size: 60px;
-  font-weight: bold;
-  padding-top: 180px;
-  padding-left: 90px;
-}
-
-#realdealbox h3{
-  font-size: 24px;
-  font-weight: bold;
-  padding-left: 90px;
-  margin-bottom: 50px;
-}
-
-.button{
-  background-color: black;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin-left: 90px;
-  cursor: pointer;`
-}
-
-#undermap{
-  margin-top: 50px;
-}
-
-#undermap h3{
-  font-weight: bold;
-  margin-left: 90px;
-  font-size: 24px;
-}
-
-
-#team h1{
-  font-size: 25px;
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-
-#team{
-  margin-top: 100px;
-  display: inline-block;
-  position: relative;
-}
-
-#team_members {
-  position: relative;
-  left: 2%
-}
-
-#ryan, #victor, #soumya, #raymond{
-  display: inline-block;
-  width: 300px;
-  height: 400px;
-  vertical-align: top;
-  border-style: solid;
-  }
-
-#team img {
-  height: 200px;
-  width: 200px;
-  padding-left: 50px;
-  padding-top: 20px;
-}
-
-#team h2, p {
-  text-align: center;
-}
-
-#sftdevel{
-  color: red
-}
-
-#other_resources h1{
-  margin-top: 100px;
-  display: inline-block;
-  position: relative;
-  left: 40%;
-}
-
+/*################# OTHER RESOURCES ##############*/
 #other_resources p{
+  margin-top: 8%;
+  display: inline-block;
+  padding-left: 30%;
   font-size: 20px;
 }
 
 #resources_box{
-  width: 100%;
+  width: 95%;
   height: 80%;
-}
-
-#crimemap {
-  width: 350px;
-  height: 350px;
-  vertical-align: top;
-  padding: 20px;
-  vertical-align: center;
+  border: solid;
+  border-color: lightgray;
+  margin-left: 2%;
 }
 
 #SanFran {
-  width: 280px;
-  height: 280px;
+  width: 12%;
+  height: 12%;
   vertical-align: top;
-  padding: 20px;
-  vertical-align: center;
-
-}
-
-#SFOD{
-  width: 300px;
-  height: 150px;
-  padding: 20px;
-  vertical-align: center;
-}
-
-#SpotCrime {
-  width: 200px;
-  height: 240px;
-  padding: 20px;
-  vertical-align: center;
-}
-
-#redfin {
-  width: 200px;
-  height: 200px;
-  padding-right: 50px;
-  padding-left: 50px;
-}
-
-#trulia {
-  width: 200px;
-  height: 200px;
-  padding-right: 50px;
-}
-
-#zillow{
-  width: 180px;
-  height: 80px;
-  padding-right: 50px;
+  padding: 2%;
+  padding-left: 5%;
 }
 
 #SFPD {
-  width: 250px;
-  height: 250px;
+  width: 12%;
+  height: 12%;
+  vertical-align: top;
+  padding: 2%;
 }
 
-#contact h1{
-  font-size: 25px;
-  text-align: center;
-  margin-top: 80px;
+#redfin {
+  width: 12%;
+  height: 12%;
+  padding: 2%;
 }
 
-#contact h3{
-padding-left: 20px;
+#trulia {
+  width: 15%;
+  height: 15%;
+  vertical-align: top;
+  padding: 2%;
+  padding-top: 5%
+}
+
+#SFOD{
+  width: 20%;
+  height: 20%;
+  vertical-align: top;
+  padding: 2%;
+  padding-top: 5%
+}
+
+#zillow{
+  width: 20%;
+  height: 20%;
+  vertical-align: top;
+  padding: 2%;
+  padding-left: 5%;
+}
+
+#SpotCrime {
+  width: 20%;
+  height: 20%;
+  vertical-align: top;
+  padding: 2%;
+  padding-top: 3%;
+}
+
+#crimemap {
+  width: 30%;
+  vertical-align: top;
+  padding-top: 3%
+}
+
+/*################### CONTACT US ###########*/
+#contact_us{
+  margin-top: 5%;
+  font-size: 18px;
+}
+
+#contact p{
+  margin-left: 2%;
 }
 
 #email {
-  padding-bottom: 100px;
+  padding-bottom: 5%;
 }

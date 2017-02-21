@@ -320,7 +320,7 @@ $(document).ready(function(){ // executes when HTML-Document is loaded and DOM i
 
        $.each(gHousingMarkers, function(index, value){
          var price = value.content.Price;
-         price = price.replace(/,/g, ""); //replaces all '/' in number from data with empty string
+         price = price.replace(/,/g, ""); //replaces all ',' in number from data with empty string
          price = price.replace('$', ""); //replaces '$' in number from data with empty string
          price = price.replace('/mo', ""); //replaces '/mo' in number from data with empty string
          var intPrice = parseInt(price); //converts string to integer

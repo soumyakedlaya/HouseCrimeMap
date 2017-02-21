@@ -9,7 +9,6 @@
     {% load staticfiles %}
     <script type="text/javascript" src='{% static 'project/js/main.js' %}'></script>
     <link rel = "stylesheet" type = "text/css" href="{% static 'project/css/styles.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,112 +21,95 @@
         </ul>
         <ul id = "Navbar">
           <li>
-            <a href="#map">REAL TIME MAP</a>
-            <a href="#team">TEAM</a>
-            <a href="#other_resources">OTHER RESOURCES</a>
-            <a href="#contact">CONTACT</a>
+            <a href="#map">Real Time Map</a>
+            <a href="#other_resources">Other Resources</a>
+            <a href="#contact">Contact</a>
         </ul>
       </div>
       <div id="realdealbox">
         <h1>The REAL Deal.</h1>
+        <h3>How safe is the neighborhood around your future home?</h3>
         <h3>We can provide you with the information that your agent won't.</h3>
-        <a href = "#map" class="button">See for yourself</a>
       </div>
 
     <!-- ################### Crime and House Checklist menu ############## -->
-      <div id = "crimechecklist">
-        <div id = "header">
-          <h3 id="recordtype">Type of Record</h3>
-        </div>
-        <div id = "crimeoptions">
-          <ul id = "optionsUL">
-            <li><input type="checkbox" id="assault">Assault</li>
-            <li><input type="checkbox" id="sexoffense" >Sex Offense</li>
-            <li><input type="checkbox" id="kidnapping" >Kidnapping</li>
-            <li><input type="checkbox" id="arson" >Arson</li>
-          </ul>
-        </div>
-      </div>
-
+    <div id = "left">
       <div id = "homechecklist">
         <div id = "header">
           <h3 id="hometype">Type of Home</h3>
         </div>
         <div id = "homeoptions">
           <ul id = "optionsUL">
-            <li><input type="checkbox" id="home">Single Family Home</li>
-            <li><input type="checkbox" id="condo">Condos</li>
-            <li><input type="checkbox" id="rent" >Rentals</li>
+            <li><input type="checkbox" id="home">  Single Family Home</li>
+            <li><input type="checkbox" id="condo">  Condos</li>
+            <li><input type="checkbox" id="rent">  Rentals</li>
           </ul>
           <span id = "price">Price Range<span><br>
           <span id = "note">(Note: Rentals are in price/month)</span><br>
-          <br><input type="textbox" id="minprice"><br>
-          to<br>
+          <br><input type="textbox" id="minprice">
+          to
           <input type="textbox" id="maxprice"><br>
           <button type="button" id="filterprice">Filter</button>
         </div>
       </div>
-      <!-- ################### MAP ############## -->
-        <div id="map"></div>
-          <input id="pac-input" class="controls" type="text" placeholder="Enter a location in San Francisco...">
-
-      <div id = "undermap">
-        <h3>One step at a time, all in one place </h3>
-        <a href = "#other_resources" class="button">Click here to view other related sites that have information BUT in many different places...</a>
-      </div>
-<!-- ############################ MEET THE TEAM ######### -->
-      <div id = "team">
-        <h1>MEET THE TEAM!</h1>
-        <div id = "team_members">
-          <div id="soumya">
-            <img src="/static/project/images/sk.jpg" alt="SK">
-            <h2>Soumya Kedlaya</h2>
-            <p id="sftdevel">Software Developer</p>
-            <p>University of California, Irvine, BS in Biological Sciences, Medical school student turned developer.</p>
-          </div>
-          <div id="ryan">
-            <img src="/static/project/images/RP.jpg" alt="RP">
-            <h2>Ryan Pan</h2>
-            <p id="sftdevel">Software Developer</p>
-            <p>University of California, Davis, Bachelor's Degree, Computer Science.</p>
-          </div>
-          <div id="victor">
-            <img src="/static/project/images/VP.jpg" alt="VP">
-            <h2>Victor Pak</h2>
-            <p id="sftdevel">Software Developer</p>
-            <p>A NICE GUY!</p>
-          </div>
-
-          <div id="raymond">
-            <img src="/static/project/images/RZ1.jpg" alt="RZ">
-            <h2>Raymond Zhong</h2>
-            <p id="sftdevel">Software Developer</p>
-            <p>A native of San Francisco who holds a Bachelor of Sciences degree in Construction Management.</p>
-          </div>
+      <div id = "crimechecklist">
+        <div id = "header">
+          <h3 id="recordtype">Crime</h3>
+        </div>
+        <div id = "crimeoptions">
+          <ul id = "optionsUL">
+            <li><input type="checkbox" id="assault">  Assault</li>
+            <li><input type="checkbox" id="sexoffense">  Sex Offense</li>
+            <li><input type="checkbox" id="kidnapping">  Kidnapping</li>
+            <li><input type="checkbox" id="arson">  Arson</li>
+          </ul>
         </div>
       </div>
-      <!-- ############################ OTHER RESOURCES ######### -->
-      <div id = "other_resources">
-        <h1>OTHER RESOURCES</h1>
-        <p>If you prefer to do your own research, below are the links to resources which contain bits of information (which we have already integrated in our site).</p>
-        <div id = "resources_box"
-          <a href= "http://www.crimemapping.com/map/ca/sanfrancisco"><img id="crimemap" src = "/static/project/images/crimemapping.svg" alt="Crime Mapping"></a>
+    </div>
+
+    <!-- ################### MAP ############## -->
+      <div id="map"></div>
+        <input id="pac-input" class="controls" type="text" placeholder="Enter a location in San Francisco...">
+
+    <!-- ############################ OTHER RESOURCES ######### -->
+    <div id = "other_resources">
+      <p>Additional Resources (we have integrated all of this information on our map):</p>
+
+      <div id = "resources_box">
+        <!-- <div id = "SanFran_box"> -->
           <a href = "https://dev.socrata.com/foundry/data.sfgov.org/cuks-n6tp"><img id="SanFran"src = "/static/project/images/sf.jpeg" alt="San Fran"></a>
-          <a href = "https://data.sfgov.org/Public-Safety/Map-Crime-Incidents-from-1-Jan-2003/gxxq-x39z/data"><img id="SFOD" src = "/static/project/images/SFOD.png" alt="SFOD"></a>
-          <a href = "https://spotcrime.com/#14791%20Butano%20Terrace%2C%20Saratoga%2C%20CA%2095070%2C%20USA"><img id="SpotCrime" src = "/static/project/images/spotcrime.png" alt="SpotCrime"></a>
-          <a href = "https://www.redfin.com/zipcode/94306/filter/sort=lo-price,include=forsale+mlsfsbo+construction+fsbo+foreclosed+sold-3mo,viewport=37.45032:37.37983:-122.0919:-122.1597"><img id="redfin" src = "/static/project/images/redfin.jpg" alt="RedFin"></a>
-          <a href = "https://www.trulia.com/"><img id="trulia" src = "/static/project/images/Trulia.png" alt="Trulia"></a>
-          <a href = "http://www.zillow.com/homes/for_rent/"><img id="zillow" src = "/static/project/images/Zillow.jpg" alt="Zillow"></a>
+        <!-- </div> -->
+        <!-- <div id = "SFPD_box"> -->
           <a href = "http://sanfranciscopolice.org/"><img id="SFPD" src = "/static/project/images/sfpd.jpeg" alt="SFPD"></a>
-        </div>
+        <!-- </div> -->
+        <!-- <div id = "redfin_box"> -->
+          <a href = "https://www.redfin.com/zipcode/94306/filter/sort=lo-price,include=forsale+mlsfsbo+construction+fsbo+foreclosed+sold-3mo,viewport=37.45032:37.37983:-122.0919:-122.1597"><img id="redfin" src = "/static/project/images/redfin.jpg" alt="RedFin"></a>
+        <!-- </div> -->
+        <!-- <div id = "trulia_box"> -->
+          <a href = "https://www.trulia.com/"><img id="trulia" src = "/static/project/images/Trulia.png" alt="Trulia"></a>
+        <!-- </div> -->
+        <!-- <div id = "SFOD_box"> -->
+          <a href = "https://data.sfgov.org/Public-Safety/Map-Crime-Incidents-from-1-Jan-2003/gxxq-x39z/data"><img id="SFOD" src = "/static/project/images/SFOD.png" alt="SFOD"></a>
+        <!-- </div> -->
+        <br>
+        <!-- <div id = "zillow_box"> -->
+          <a href = "http://www.zillow.com/homes/for_rent/"><img id="zillow" src = "/static/project/images/Zillow.jpg" alt="Zillow"></a>
+        <!-- </div>
+        <div id = "SpotCrime_box"> -->
+          <a href = "https://spotcrime.com/#14791%20Butano%20Terrace%2C%20Saratoga%2C%20CA%2095070%2C%20USA"><img id="SpotCrime" src = "/static/project/images/spotcrime.png" alt="SpotCrime"></a>
+        <!-- </div>
+        <div id = "crimemap_box"> -->
+          <a href= "http://www.crimemapping.com/map/ca/sanfrancisco"><img id="crimemap" src = "/static/project/images/crimemapping.JPG" alt="Crime Mapping"></a>
+        <!-- </div> -->
       </div>
-      <!-- ############################ CONTACT US ######### -->
+    </div>
 
-      <div id = "contact">
-        <h1>CONTACT US!</h1>
-        <h3><i class="fa fa-map-marker"></i> San Francisco, California, USA</h3>
-        <h3><i class="fa fa-phone"></i> Phone: 415.508.7108</h3>
-        <h3 id = "email"><i class="fa fa-envelope"></i><a href="mailto:honestagent@kedlaya.com">Email: Support@HonestAgent.com</a></h3>
-      </div>
-    </body>
+    <!-- ############################ CONTACT US ######### -->
+    <div id = "contact">
+      <p id="contact_us">Contact us!</p>
+      <p><i class="fa fa-map-marker"></i> San Francisco, California, USA</p>
+      <p><i class="fa fa-phone"></i> Phone: 408.444.1212</p>
+      <p id = "email"><i class="fa fa-envelope"></i><a href="mailto:honestagent@kedlaya.com">Email: Support@HonestAgent.com</a></p>
+    </div>
+  </body>
 </html>
