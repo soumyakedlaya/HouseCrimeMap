@@ -32,6 +32,9 @@ body,h1,h2,h3,h4,h5,h6 {
 #Navbar_realAgent li {
   font-size: 24px;
   padding: 0px;
+  text-decoration: none;
+  color: #008ddf;
+  font-weight: bold;
 }
 
 #Navbar li {
@@ -43,13 +46,6 @@ body,h1,h2,h3,h4,h5,h6 {
   text-decoration: none;
   padding: 10px;
   color: rgb(68, 68, 68);
-  font-weight: bold;
-}
-
-#Navbar_realAgent a {
-  text-decoration: none;
-  padding: 10px;
-  color: #008ddf;
   font-weight: bold;
 }
 
