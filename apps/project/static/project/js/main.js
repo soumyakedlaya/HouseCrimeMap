@@ -213,12 +213,13 @@ $(document).ready(function(){ // executes when HTML-Document is loaded and DOM i
 
     //Display Residence markers on map
     function displayResidenceMarker(residenceCategory) {
+      //Ex: if gResidenceUrlString = "home", make a HTTP GET request to the url that includes "home" in apps/project/urls.py. Django links the url with a method called home in apps/projects/views.py. Def home in views.py renders the static home.json data from apps/project/templates/project/home.json
       $.get(gResidenceUrlString, function(res) {
             //initialize Info Window
             var infowindow = new google.maps.InfoWindow({
               content: ''
             })
-            //for each JSON object in data, create a MARKERS
+            //for each JSON object in data, create a MARKER
             $.each(JSON.parse(res), function(index,value) {
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(value.x, value.y),
